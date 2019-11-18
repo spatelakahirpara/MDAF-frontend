@@ -1,0 +1,11 @@
+/* /deep/.mat-tab-label, /deep/.mat-tab-label-active{ */
+.minimal-width-tabs {
+  min-width: 0 !important;
+  padding: 3px !important;
+  margin: 3px !important;
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}

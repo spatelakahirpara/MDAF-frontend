@@ -1,0 +1,19 @@
+<div class="main wrapper">
+        <div class="bar" style="background-color: rgb(238, 158, 238);">
+            <h3>Here is your Tool Stack</h3>
+            <br>
+            <mat-list>
+
+                    <mat-list-item *ngFor="let o of stack">
+                      <img matListAvatar src="https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/devopsloop-1560x760.png" alt="...">
+                      <h3 matLine> {{ o.tools }} </h3>
+                      <p matLine>
+                        <span> {{o.stage}} </span>
+                        <span class="demo-2"> -- {{o.subsection}} </span>
+                      </p>
+                    </mat-list-item>
+                  </mat-list>
+        </div>     
+    </div>
+  
+    

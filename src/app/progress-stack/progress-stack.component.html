@@ -1,0 +1,32 @@
+<h3>Your Tool Stack</h3>
+  <br>
+<div class="flexstack">
+  
+  <div
+    class="card bg-light mb-3"
+    style="max-width: 18rem;"
+    *ngFor="let stage of stages; index as i"
+  >
+    <div class="card-body">
+      <h5 class="card-title">{{ stage.stage }}</h5>
+      <ul class="card-text" >
+        <div *ngFor="let o of options">
+            
+          <div *ngIf="o.stage === stage.stage">
+            
+              <span>{{ o.tools }} &ensp;</span>
+              <button (click)="deleteTool(o)">
+                  x
+                </button>
+             
+          </div>
+        </div>
+      </ul>
+    </div> 
+  </div>
+  
+</div>
+<br>
+<button (click)="onClick($event)" class="btn btn-primary" [disabled]= "!getButton()" mat-raised-button  >
+    Review
+  </button>

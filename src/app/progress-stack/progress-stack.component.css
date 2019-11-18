@@ -1,0 +1,21 @@
+
+:host {      
+  width: 100%;    
+}
+.flexstack {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+.flexstack > div {
+  flex: 0 0 250px;
+}
+.delete {
+  display: inline-block;
+  position: absolute;
+  /* right: 0.5px; */
+  cursor: pointer;
+}   
+button:hover{
+  background: rgb(255, 57, 57);
+}

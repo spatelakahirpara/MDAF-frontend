@@ -1,0 +1,50 @@
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .wrapper > * {
+    padding: 10px;
+  }
+  
+  .header {
+    text-align: center;
+    /* flex: 0 0 auto; */
+  }
+  
+  .footer {
+    text-align: center;
+    /* flex: 0 0 auto; */
+  }
+  
+  .main {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    flex: 1 1 auto;
+  }
+  
+  .bar {
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    /* background-color: violet; */
+    flex: 0 0 auto;
+  }
+  
+  .selector {
+    text-align: center;
+    /* background-color: violet; */
+    flex: 1 1 auto;
+    width: 30%;
+  }
+  
+  .stack {
+    text-align: center;
+    /* background-color: violet; */
+    flex: 1 1 auto;
+    width: 70%;
+  }
+  

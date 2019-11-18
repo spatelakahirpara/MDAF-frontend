@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .wrapper > * {
+    padding: 10px;
+  }
+  
+  .header {
+    text-align: center;
+    /* flex: 0 0 auto; */
+  }
+  
+  .footer {
+    text-align: center;
+    /* flex: 0 0 auto; */
+  }
+  

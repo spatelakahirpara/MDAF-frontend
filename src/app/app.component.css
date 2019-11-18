@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .wrapper > * {
+    padding: 10px;
+  }
+  
+  .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: lightblue;
+    color: black;
+    text-align: center;
+    display: block;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    text-align: center;
+  }
+  
