@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tool,SavedToolchainService } from '../services/saved-toolchain.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,12 +10,17 @@ import { Tool,SavedToolchainService } from '../services/saved-toolchain.service'
 })
 export class ReviewStackComponent implements OnInit {
   stack : Tool[]= [];
-  constructor(private savedToolChainService: SavedToolchainService) { }
+  constructor(private savedToolChainService: SavedToolchainService, private router: Router) { }
   
 
   ngOnInit() {
     this.stack= this.savedToolChainService.getStack();
     console.log(this.stack);
+
+  }
+  build(){
+    
+    this.router.navigate(['../build']);
 
   }
 

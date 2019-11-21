@@ -19,3 +19,12 @@
 button:hover{
   background: rgb(255, 57, 57);
 }
+.x{
+  float: right;
+}
+.t{
+  float: left;
+}
+.listStack{
+  height: 35px;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { GetApiService, Tool } from "../services/get-api.service";
 import { SavedToolchainService } from "../services/saved-toolchain.service";
+import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: "app-tool-picker",
@@ -15,17 +16,16 @@ export class ToolPickerComponent implements OnInit {
   ) {
     this.changeText = false;
   }
-  choice: number;
-  
-  
+  choice: number; 
+   
   get tabs(): string[] {
     if (this.apiService.subcategoriesState)
-      return this.apiService.subcategories.map(e => e.subsection);
+       return this.apiService.subcategories.map(e => e.subsection);
     else return [];
   }
 
   get options(): Tool[][] {
-    if (this.apiService.toolsState) return this.apiService.tools;
+    if (this.apiService.toolsState) {return this.apiService.tools;}
     else return [];
   }
 
@@ -43,10 +43,15 @@ export class ToolPickerComponent implements OnInit {
     this.apiService.currentStage = i;
     this.currentTab = 0;
   }
-
+  
+  skip(){
+      this.currentStage = 1 + this.currentStage;
+      this.apiService.getAllData();
+    
+  }
   public onClick(event: Event) {
-    if(this.options[this.currentTab][0].stage=="Monitor"){
-        console.log("got it");
+    
+     if(this.options[this.currentTab][0].stage=="Monitor"){
         this.storeChoice();
         this.savedToolchain.showButton=true;
     }
@@ -59,13 +64,10 @@ export class ToolPickerComponent implements OnInit {
 
       else {this.currentStage = 1 + this.currentStage;
       // this.apiService.currentStage= this.currentStage
-      }
-
-      
+      }  
       this.savedToolchain.showButton=false;
       this.apiService.getAllData();
     }
-    
   }
  
   private storeChoice() {
@@ -75,12 +77,8 @@ export class ToolPickerComponent implements OnInit {
   } 
  
   ngOnInit() {
-    // this.apiService.callStagesApi();
-    // this.apiService.getSubcategories();
     this.apiService.getAllData();
-    
-    // console.log(this.apiService.subcategoriesState);
-    // this.apiService.getTools();
-    // console.log(this.apiService.toolsState);
+ 
   }
+
 }

@@ -1,6 +1,6 @@
 .wrapper {
     display: flex;
-    flex-flow: column nowrap;
+    /* flex-flow: column nowrap; */
     justify-content: center;
     height: 100%;
     align-items: center;
@@ -20,4 +20,35 @@
     text-align: center;
     /* flex: 0 0 auto; */
   }
+  .column {
+    float: left;
+    width: 25%;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
   
+  ul
+  {
+    width: 90%;
+  }  /* float & allow room for the widest item */
+  .li
+  {
+    float: left;
+    width: 30%;
+  }  /* stop the float */
+  img{
+    height: 40px;
+    width: 40px;
+  }
+  br
+  {
+    clear: left;
+  }  /* separate the list from subsequent markup */
+  div.wrapper
+  {
+    margin-bottom: 10%;
+  }
+        

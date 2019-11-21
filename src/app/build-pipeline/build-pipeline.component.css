@@ -1,0 +1,9 @@
+div.wrapper{
+    width: 800px;
+    margin-left: 20%;
+    margin-top: 60px;
+    
+}
+::ng-deep.mat-horizontal-stepper{
+    background-color: red; 
+ }

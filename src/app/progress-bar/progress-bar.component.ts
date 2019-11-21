@@ -18,7 +18,7 @@ export class ProgressBarComponent implements OnInit {
   }
   get currentStage(): number {
     return this.apiService.currentStage;
-    this.apiService.getAllData();
+    //this.apiService.getAllData();
   }
   set currentStage(i: number) { 
     this.apiService.currentStage = i;

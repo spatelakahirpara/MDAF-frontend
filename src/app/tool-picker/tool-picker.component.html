@@ -1,8 +1,21 @@
+
 <mat-card>
+  <div *ngIf="tabs.length == 0"><h3>Future Work</h3>
+    <br>
+    Please click Skip
+    <br>
+    <button (click)="skip()" class="btn btn-primary" mat-raised-button  >
+        Skip
+      </button>
+  </div>
   <mat-tab-group class="minimal-width-tabs" [(selectedIndex)]="currentTab">
+     
     <!-- <mat-tab label="xcgdfg">xcgdfg</mat-tab> -->
+    
+    
     <mat-tab *ngFor="let tab of tabs; index as i" [label]="i + 1">
       <h3>{{ tab }}</h3>
+      <h3 *ngIf="tabs.length==0"> preprod</h3>
       <mat-radio-group class="radio-group" [(ngModel)]="choice">
         <mat-radio-button mat-raised-button
         matTooltip="Information about the Tool ------ {{option.tools}}.
@@ -11,8 +24,8 @@
           *ngFor="let option of options[i]; index as j"
           value="{{ j }}" 
         >
-        
-          {{ option.tools }}
+         
+          {{ option.tools }} 
         </mat-radio-button>
       </mat-radio-group>
     </mat-tab>

@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnDestroy } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
-import { Observable, of, concat, BehaviorSubject } from "rxjs";
+import { Observable, of, concat, BehaviorSubject, Subscription } from "rxjs";
 
 export interface Stage {
   stage: string;
@@ -24,7 +24,7 @@ export class LoginInfo {
 @Injectable({
   providedIn: "root"
 })
-export class GetApiService {
+export class GetApiService implements OnDestroy {
   apiUrl: string;
   public LoginData$: BehaviorSubject<LoginInfo>;
   stagesState: boolean = false;
@@ -32,6 +32,7 @@ export class GetApiService {
 
   subcategoriesState: boolean = false;
   subcategories: SubCategory[] = [];
+  subscription = new Subscription;
 
   toolsState: boolean = false;
   tools: Tool[][] = [];
@@ -64,6 +65,14 @@ export class GetApiService {
    } 
     return this.http.post<any[]>(this.apiUrl + "login",reqBody);
   }
+ 
+  callStackApi(username, stack){
+    let reqBody={
+      "UserName":username,
+      "Stack":stack
+   } 
+    return this.http.post<any[]>(this.apiUrl + "review",reqBody);
+  }
   callStagesApi() {
     return this.http.get<Stage[]>(this.apiUrl + "toolchain");
   }
@@ -71,12 +80,13 @@ export class GetApiService {
   callSubcategoriesApi(stage: String): Observable<Object> {
     if (stage === "Preproduction") {
       return of([]);
-    } else return this.http.get<SubCategory[]>(this.apiUrl + stage);
+    } else 
+    return this.http.get<SubCategory[]>(this.apiUrl + stage);
   }
 
   callToolsApi(stage: String, subcategoriesRoute: string): Observable<Object> {
     if (stage === "Preproduction") {
-      return of([]);
+      return of('work');
     } else
       return this.http.get<Tool[]>(
         this.apiUrl + stage + "/" + subcategoriesRoute
@@ -89,7 +99,7 @@ export class GetApiService {
   //   stagesApi.pipe(concat(subcategoriesApi()))
   // }
   public getAllData() {
-    this.callStagesApi().subscribe(
+    this.subscription.add(this.callStagesApi().subscribe(
       (next: any) => {
         
         this.stages = next;
@@ -117,7 +127,7 @@ export class GetApiService {
         );
       },
       (error: any) => console.error(error)
-    );
+    ));
   }
 
   // public getStages() {
@@ -162,4 +172,8 @@ export class GetApiService {
   //     );
   //   }
   // }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

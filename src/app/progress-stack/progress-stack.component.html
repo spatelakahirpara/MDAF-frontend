@@ -12,21 +12,21 @@
       <ul class="card-text" >
         <div *ngFor="let o of options">
             
-          <div *ngIf="o.stage === stage.stage">
-            
-              <span>{{ o.tools }} &ensp;</span>
-              <button (click)="deleteTool(o)">
+          <div class="listStack" *ngIf="o.stage === stage.stage">
+              <!-- <span *ngIf="!toolErr">Error</span> -->
+              <li> <span class="t">{{ o.tools }} </span>
+              <button class="x" (click)="deleteTool(o)">
                   x
                 </button>
-             
+              </li>
           </div>
-        </div>
+        </div> 
       </ul>
     </div> 
   </div>
   
 </div>
-<br>
+<br> 
 <button (click)="onClick($event)" class="btn btn-primary" [disabled]= "!getButton()" mat-raised-button  >
     Review
   </button>

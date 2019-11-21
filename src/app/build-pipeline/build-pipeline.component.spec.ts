@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToolDetailComponent } from './tool-detail.component';
+import { BuildPipelineComponent } from './build-pipeline.component';
 
-describe('ToolDetailComponent', () => {
-  let component: ToolDetailComponent;
-  let fixture: ComponentFixture<ToolDetailComponent>;
+describe('BuildPipelineComponent', () => {
+  let component: BuildPipelineComponent;
+  let fixture: ComponentFixture<BuildPipelineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToolDetailComponent ]
+      declarations: [ BuildPipelineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToolDetailComponent);
+    fixture = TestBed.createComponent(BuildPipelineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

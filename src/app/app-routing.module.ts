@@ -5,6 +5,8 @@ import { ReviewStackComponent } from './review-stack/review-stack.component';
 import { SelectToolsComponent } from './select-tools/select-tools.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { BuildPipelineComponent } from './build-pipeline/build-pipeline.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo:'/selectTools', pathMatch:'full'},
@@ -12,8 +14,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {path:'review' , component: ReviewStackComponent},
   {path:'selectTools' , component: SelectToolsComponent},
-];
+  {path: 'build', component: BuildPipelineComponent},
 
+    ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

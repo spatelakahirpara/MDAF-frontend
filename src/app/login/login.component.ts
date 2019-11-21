@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     login() : void {
       
       this.loginService.callLoginApi(this.username,this.password).subscribe((res:any)=>{
-  
+        console.log(res.body.UserName);
         if(res.StatusCode==200){
         console.log(res);
         this.username= res.body.UserName;

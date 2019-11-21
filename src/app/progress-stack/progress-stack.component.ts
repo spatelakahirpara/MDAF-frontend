@@ -14,10 +14,11 @@ export class ProgressStackComponent implements OnInit {
     private apiService: GetApiService,
     private savedToolchain: SavedToolchainService,
     private router: Router
-  ) {}
+  ) {} 
   displayButton: Boolean=true;
   tool: Tool[]=[];
-
+   errorMap = new Map();
+   fillError:boolean;
   ngOnInit() {
      
   }
@@ -31,14 +32,27 @@ export class ProgressStackComponent implements OnInit {
   getButton(){
     return this.savedToolchain.getButton();
   }
+  getError(){
+    
+  }
   onClick(event:Event){
-    console.log(this.savedToolchain.getStack());
+    console.log(this.savedToolchain.getStack()); 
+    this.savedToolchain.saveToolChainApi();
     this.router.navigate(['review']);
 
   }
   deleteTool(tool:Tool){
     
     this.savedToolchain.removeTool(tool);
-
+    // this.errorMap=this.savedToolchain.errMap;
+    // if(this.errorMap.has(tool.stage)){
+    //   this.fillError=true;
+    // }
+    // else{
+    //   this.fillError=false;
+    // }
+    // console.log("error"+this.fillError);
+     
   }
+  
 }

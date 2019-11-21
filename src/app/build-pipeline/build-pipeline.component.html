@@ -1,0 +1,51 @@
+
+<div class="wrapper">
+
+  <mat-horizontal-stepper [linear]="isLinear" #stepper style="background:lightgray">
+  
+    <mat-step [stepControl]="gitForm">
+      <form [formGroup]="gitForm">
+        <ng-template matStepLabel>Fill out Git Information</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="User Id" formControlName="gitUserId" required>
+        </mat-form-field><br>
+        <mat-form-field>
+            <input matInput placeholder="Password" formControlName="gitPassword" required>
+          </mat-form-field><br>
+          <mat-form-field>
+              <input matInput placeholder="Git URL" formControlName="gitUrl" required>
+            </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="jenkinsForm">
+      <form [formGroup]="jenkinsForm">
+        <ng-template matStepLabel>Fill out Jenkins Information</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Host IP" formControlName="jenkinsHostIp" required>
+        </mat-form-field><br>
+        <mat-form-field>
+            <input matInput placeholder="User Name" formControlName="jenkinsUserName" required>
+          </mat-form-field><br>
+          <mat-form-field>
+              <input matInput placeholder="Password" formControlName="jenkinsPassword" required>
+            </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Build Pipeline</ng-template>
+      You are now done.
+      <div>
+        <button mat-raised-button (click)="onSubmit()">Build</button>
+        
+      </div>
+    </mat-step>
+  
+  </mat-horizontal-stepper>
+</div>
