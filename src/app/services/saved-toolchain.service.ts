@@ -38,7 +38,7 @@ export class SavedToolchainService {
     this.apiService.callStackApi(this.apiService.getUserName(),this.getStack() ).subscribe((res:any)=>{
       if(res.StatusCode==200){
       // this.username= res.body.UserName;
-      // console.log(res.body.UserName);
+      console.log("data"+res.data);
       //   this.loginService.setUserName(res.body.UserName);
       //   this.router.navigate(['../selectTools']);
 

@@ -20,6 +20,14 @@ export class LoginInfo {
   Status: number;
   Info: string;
 }
+// export interface ToolAccessName{
+//   access:string[];
+// }
+// export interface AccessTool {
+//   toolName: string;
+//   toolAccessName: ToolAccessName;
+  
+// }
 
 @Injectable({
   providedIn: "root"
@@ -36,6 +44,7 @@ export class GetApiService implements OnDestroy {
 
   toolsState: boolean = false;
   tools: Tool[][] = [];
+  loadAccessData:String []= [];
 
   currentStage: number = 0;
   currentSubCategory: number = 0;
@@ -73,6 +82,7 @@ export class GetApiService implements OnDestroy {
    } 
     return this.http.post<any[]>(this.apiUrl + "review",reqBody);
   }
+ 
   callStagesApi() {
     return this.http.get<Stage[]>(this.apiUrl + "toolchain");
   }
@@ -98,6 +108,7 @@ export class GetApiService implements OnDestroy {
   //   const toolsApi = this.callToolsApi;
   //   stagesApi.pipe(concat(subcategoriesApi()))
   // }
+ 
   public getAllData() {
     this.subscription.add(this.callStagesApi().subscribe(
       (next: any) => {

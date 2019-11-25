@@ -1,32 +1,35 @@
 .wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100%;
   }
   
   .wrapper > * {
-    padding: 10px;
+  padding: 10px;
   }
   
   .header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color: lightblue;
-    color: black;
-    text-align: center;
-    display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color:#D6E4FF;
+  color: #192038;
+  text-align: center;
+  display: block;
   }
-  
+  html body {
+  padding-top: 50px;
+  }
   .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: blue;
-    color: white;
-    text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #E83E8C;
+  color:#F7F9FF;
+  text-align: center;
   }
-  

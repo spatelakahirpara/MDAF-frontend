@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
-import { PostApiService } from '../services/post-api.service';
+import { PostApiService, ToolAccess } from '../services/post-api.service';
 import { GetApiService } from '../services/get-api.service';
 import { Router } from '@angular/router';
 
@@ -14,13 +14,19 @@ export class BuildPipelineComponent implements OnInit {
 
   gitForm : FormGroup;
   jenkinsForm : FormGroup;
+  
 
   constructor(private formBuilder: FormBuilder, 
     private postApi: PostApiService,private getapi: GetApiService,
     private router: Router) {}
-
+    loadData : any =[];
   ngOnInit() {
-    this.gitForm = this.formBuilder.group({
+    // this.getapi.callToolAccessApi().subscribe(data =>{
+    //   this.loadData = data;
+    //   console.log(this.loadData);
+    // })
+    
+    this.gitForm = this.formBuilder.group({ 
       gitUserId: new FormControl('',Validators.required), 
       gitPassword: new FormControl('',Validators.required), 
       gitUrl: new FormControl('',Validators.required), 
@@ -30,18 +36,23 @@ export class BuildPipelineComponent implements OnInit {
       jenkinsUserName: new FormControl('',Validators.required), 
       jenkinsPassword: new FormControl('',Validators.required)
     });
+    // this.getapi.accessData();
+  }
+  getData(){
+
   }
   onSubmit(){
     this.postApi.callAccessApi(this.gitForm.value,this.jenkinsForm.value).subscribe((res:any)=>{
-      if(res.StatusCode==200){
+     
+      // if(res.StatusCode==200){
       console.log(res);
-      this.router.navigate(['../selectTools']);
+      this.router.navigate(['../build']);
       
-      }
-      else{
-        console.log("error")
-      }
-      console.log("submitted the data"+ res);
+      // }
+      // else{
+      //   console.log("error")
+      // }
+      // console.log("submitted the data"+ res);
     });
   }
 

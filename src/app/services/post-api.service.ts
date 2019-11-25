@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-
+export interface ToolAccess {
+  tool: string;
+  subsection: string;
+  tools: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +17,7 @@ export class PostApiService {
    }
 
    callAccessApi(gitValue,jenkinsValue){
+     console.log("submitted:"+ gitValue.gitPassword);
     
     let reqBody={
       "Git":gitValue,
@@ -22,5 +27,5 @@ export class PostApiService {
    return this.http.post<any[]>(this.apiUrl+"access",reqBody);
     
   }
-} 
+}  
     

@@ -6,7 +6,7 @@
 }
 div {
   padding: 50px;
-  background-color: #fff;
+  background-color: #f7f9ff;
 }
 .step-menu {
   list-style-type: none;
@@ -16,7 +16,7 @@ div {
 .step-menu li {
   box-sizing: border-box;
   float: left;
-  background: #ddd;
+  background: #f7f9ff;
   height: 50px;
   text-align: center;
   padding: 15px 15px 15px 50px;
@@ -27,7 +27,7 @@ div {
   content: "";
   position: absolute;
   border: 25px solid transparent;
-  border-left-color: #fff;
+  border-left-color: #f7f9ff;
   top: 0px;
   right: -60px;
 }
@@ -35,7 +35,7 @@ div {
   content: "";
   position: absolute;
   border: 25px solid transparent;
-  border-left-color: #ddd;
+  border-left-color: #f7f9ff;
   top: 0px;
   right: -50px;
 }
@@ -71,16 +71,16 @@ div {
   border: none;
 }
 .step-menu li.current {
-  background: rgba(51, 122, 183, 0.75);
-  color: white;
+  background: #3366ff;;
+  color: #f7f9ff;
 }
 .step-menu li.current:after {
-  border-left-color: rgba(51, 122, 183, 0.75);
+  border-left-color: #3366ff;
 }
 .step-menu li.complete {
-  background: rgba(51, 122, 183, 0.4);
-  color: white;
+  background: #3366ff;
+  color: #f7f9ff;
 }
 .step-menu li.complete:after {
-  border-left-color: rgba(51, 122, 183, 0.4);
+  border-left-color:#3366ff;
 }

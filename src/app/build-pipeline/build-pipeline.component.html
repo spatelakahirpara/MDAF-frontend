@@ -2,7 +2,10 @@
 <div class="wrapper">
 
   <mat-horizontal-stepper [linear]="isLinear" #stepper style="background:lightgray">
-  
+  <!-- <div *ngFor="let data of loadData">
+     {{data.toolName}} -->
+
+  <!--</div> -->
     <mat-step [stepControl]="gitForm">
       <form [formGroup]="gitForm">
         <ng-template matStepLabel>Fill out Git Information</ng-template>

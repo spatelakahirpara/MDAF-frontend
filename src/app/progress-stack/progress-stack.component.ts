@@ -38,6 +38,7 @@ export class ProgressStackComponent implements OnInit {
   onClick(event:Event){
     console.log(this.savedToolchain.getStack()); 
     this.savedToolchain.saveToolChainApi();
+    
     this.router.navigate(['review']);
 
   }

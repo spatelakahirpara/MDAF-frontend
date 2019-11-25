@@ -1,13 +1,13 @@
-<h3>Your Tool Stack</h3>
-  <br>
-<div class="flexstack">
-  
+<mat-card><h4>Your Tool Stack</h4>
+    <div class="flexstack">
+    
+    <br>
   <div
-    class="card bg-light mb-3"
+    class="card bg-light mb-3" 
     style="max-width: 18rem;"
     *ngFor="let stage of stages; index as i"
   >
-    <div class="card-body">
+    <div class="card-body" style="background-color:#F7F9FF"> 
       <h5 class="card-title">{{ stage.stage }}</h5>
       <ul class="card-text" >
         <div *ngFor="let o of options">

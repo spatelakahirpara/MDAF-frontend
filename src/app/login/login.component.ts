@@ -18,19 +18,23 @@ export class LoginComponent implements OnInit {
     login() : void {
       
       this.loginService.callLoginApi(this.username,this.password).subscribe((res:any)=>{
-        console.log(res.body.UserName);
+        
         if(res.StatusCode==200){
         console.log(res);
         this.username= res.body.UserName;
         console.log(res.body.UserName);
           this.loginService.setUserName(res.body.UserName);
           this.router.navigate(['../selectTools']);
+ 
+        }
+        else if(res.StatusCode==404){
 
+          alert("Username and Password doesn't matched" );
+          this.username="";
+          this.password="";
+          
         }
-        else{
-          console.log("error")
-        }
-        console.log("submitted the data"+ res);
+        
       });
     }
   }
