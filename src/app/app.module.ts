@@ -19,6 +19,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BuildPipelineComponent } from './build-pipeline/build-pipeline.component';
 
+import { NgScrollbarModule } from 'ngx-scrollbar';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,8 @@ import { BuildPipelineComponent } from './build-pipeline/build-pipeline.componen
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgScrollbarModule
 
   ],
   providers: [GetApiService],

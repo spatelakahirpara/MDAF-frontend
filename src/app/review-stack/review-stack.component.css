@@ -1,54 +1,56 @@
 .wrapper {
     display: flex;
-    /* flex-flow: column nowrap; */
     justify-content: center;
     height: 100%;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 3rem;    
   }
-  
-  .wrapper > * {
-    padding: 10px;
-  }
-  
-  .header {
+
+  .bar {
     text-align: center;
-    /* flex: 0 0 auto; */
+    margin: 0 auto ;
+    margin-top: 0.5rem;    
+  }  
+ 
+  .stack-image {
+    height: 20px;
+    width: 20px;
+    background-size: cover;
   }
   
-  .footer {
+  .footer-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
+  .add-pad {
+    padding-top: 1rem !important;
+  }
+
+  .review-card {
+    margin: 1rem;
     text-align: center;
-    /* flex: 0 0 auto; */
+    min-width: 260px;
+    max-width: 300px;
+    transition: all 0.5s ease;
   }
-  .column {
-    float: left;
-    width: 25%;
-  }
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+
+  .review-card:hover { 
+  -webkit-box-shadow: -4px -3px 25px -1px rgba(255,108,44,0.22);
+  -moz-box-shadow: -4px -3px 25px -1px rgba(255,108,44,0.22);
+   box-shadow: -4px -3px 25px -1px rgba(255,108,44,0.22);
+  } 
   
-  ul
-  {
-    width: 90%;
-  }  /* float & allow room for the widest item */
-  .li
-  {
-    float: left;
-    width: 30%;
-  }  /* stop the float */
-  img{
-    height: 40px;
-    width: 40px;
+  .noData {
+    margin: 0 auto;  
   }
-  br
-  {
-    clear: left;
-  }  /* separate the list from subsequent markup */
-  div.wrapper
-  {
-    margin-bottom: 10%;
+
+  .stack-container {
+    padding: 0 5rem;
   }
+
         
