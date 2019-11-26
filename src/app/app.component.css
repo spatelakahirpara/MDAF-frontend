@@ -4,29 +4,29 @@
   justify-content: center;
   height: 100%;
   }
-  
-  .header {
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color:#19aa8d;
-    color:#F7F9FF;
-    text-align: center;
-    display: block;
-  }
+
+.header {
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #3498db;
+  color: #F7F9FF;
+  text-align: center;
+  display: block;
+}
 
   html body {
     padding-top: 50px;
   }
 
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 10px !important;
-    background-color:#19aa8d;
-    color:#F7F9FF;
-    text-align: center;
-    z-index: 1;
-  }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px !important;
+  background-color: #3498db;
+  color: #F7F9FF;
+  text-align: center;
+  z-index: 1;
+}

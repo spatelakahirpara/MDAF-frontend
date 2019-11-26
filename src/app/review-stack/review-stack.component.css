@@ -39,11 +39,11 @@
     transition: all 0.5s ease;
   }
 
-  .review-card:hover { 
-  -webkit-box-shadow: -4px -3px 25px -1px rgba(255,108,44,0.22);
-  -moz-box-shadow: -4px -3px 25px -1px rgba(255,108,44,0.22);
-   box-shadow: -4px -3px 25px -1px rgba(255,108,44,0.22);
-  } 
+    .review-card:hover {
+      -webkit-box-shadow: -4px -3px 25px -1px #3498db;
+      -moz-box-shadow: -4px -3px 25px -1px #3498db;
+      box-shadow: -4px -3px 25px -1px #3498db;
+    } 
   
   .noData {
     margin: 0 auto;  
@@ -53,4 +53,3 @@
     padding: 0 5rem;
   }
 
-        
