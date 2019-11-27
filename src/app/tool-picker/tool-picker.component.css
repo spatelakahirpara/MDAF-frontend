@@ -9,3 +9,12 @@
   flex-direction: column;
   margin: 15px 0;
 }
+
+.mat-tool-picker {
+  margin-bottom: 3rem;
+  min-height: 380px;
+}
+
+.tab-pad {
+  padding-top: 0.5rem;
+}
