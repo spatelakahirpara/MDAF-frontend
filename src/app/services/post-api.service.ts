@@ -16,12 +16,14 @@ export class PostApiService {
     this.apiUrl = environment.apiUrl;
    }
 
-   callAccessApi(gitValue,jenkinsValue){
-     console.log("submitted:"+ gitValue.gitPassword);
+   callAccessApi(gitValue,jenkinsValue,Username){
+
+     console.log("submitted by:"+ Username);
     
     let reqBody={
       "Git":gitValue,
-      "Jenkins":jenkinsValue
+      "Jenkins":jenkinsValue,
+      "UserName":Username,
    } 
   
    return this.http.post<any[]>(this.apiUrl+"access",reqBody);

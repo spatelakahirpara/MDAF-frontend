@@ -9,7 +9,7 @@ import { BuildPipelineComponent } from './build-pipeline/build-pipeline.componen
 
 
 const routes: Routes = [
-  {path: '', redirectTo:'/selectTools', pathMatch:'full'},
+  {path: '', redirectTo:'/login', pathMatch:'full'},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   {path:'review' , component: ReviewStackComponent},
