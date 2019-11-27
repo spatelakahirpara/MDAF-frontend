@@ -9,16 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./review-stack.component.css']
 })
 export class ReviewStackComponent implements OnInit {
-  stack : Tool[]= [];
+  stacks : Tool[]= [];
   constructor(private savedToolChainService: SavedToolchainService, private router: Router) { }
-  
+  isData = false;
 
   ngOnInit() {
-    this.stack= this.savedToolChainService.getStack();
-    console.log(this.stack);
+    this.stacks= this.savedToolChainService.getStack();
+    this.isData = this.stacks.length == 0? false : true;
+    console.log(this.stacks);
 
   }
-  build(){
+  build() {
     
     this.router.navigate(['../build']);
 

@@ -1,4 +1,6 @@
-<mat-card><h4>Your Tool Stack</h4>
+<div class="progress-card">
+<mat-card>
+  <h5>Your Tool Stack</h5>
     <div class="flexstack">
     
     <br>
@@ -26,7 +28,9 @@
   </div>
   
 </div>
+</mat-card>
 <br> 
-<button (click)="onClick($event)" class="btn btn-primary" [disabled]= "!getButton()" mat-raised-button  >
+<button (click)="onClick($event)"  color="primary" [disabled]= "!getButton()" mat-raised-button >
     Review
-  </button>
+ </button>
+</div>
