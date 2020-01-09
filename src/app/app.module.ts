@@ -20,6 +20,8 @@ import { RegisterComponent } from './register/register.component';
 import { BuildPipelineComponent } from './build-pipeline/build-pipeline.component';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { SelectBuildComponent } from './select-build/select-build.component';
+import { SelectBuildToolsComponent } from './select-build-tools/select-build-tools.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     LoginComponent,
     RegisterComponent,
     BuildPipelineComponent,
+    SelectBuildComponent,
+    SelectBuildToolsComponent,
   
    
   ],

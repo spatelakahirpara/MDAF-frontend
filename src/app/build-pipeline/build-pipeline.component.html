@@ -17,7 +17,7 @@
   </mat-horizontal-stepper>
 </form> -->
 
-<!-- <div class="wrapper">
+<div class="wrapper">
 
   <mat-horizontal-stepper [linear]="isLinear" #stepper style="background:lightgray">
 
@@ -36,7 +36,7 @@
         <div>
           <button mat-raised-button matStepperNext>Next</button>
         </div>
-      </form>
+      </form> 
     </mat-step>
     <mat-step [stepControl]="jenkinsForm">
       <form [formGroup]="jenkinsForm">
@@ -65,19 +65,20 @@
       </div>
     </mat-step>
   
-  </mat-horizontal-stepper> -->
+  </mat-horizontal-stepper>
 
   
-  <!-- <div *ngFor="let data of loadData;index as i">
+  <div *ngFor="let data of accessData;index as i">
+    {{data.ToolName}}-->{{data.AccessParam}}
       
-      <div *ngIf="i%2==0; else loggedOut" >{{i}}{{data}}</div>
+      <!-- <div *ngIf="i%2==0; else loggedOut" >{{i}}{{data}}</div>
 
             
       <ng-template #loggedOut>
           {{i}}
          {{data}}
         </ng-template>
-          
+           -->
       
-        </div> -->
+        </div>
  <!-- </div>  -->
