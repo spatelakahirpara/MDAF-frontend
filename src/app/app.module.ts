@@ -19,6 +19,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BuildPipelineComponent } from './build-pipeline/build-pipeline.component';
 
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import { SelectBuildComponent } from './select-build/select-build.component';
+import { SelectBuildToolsComponent } from './select-build-tools/select-build-tools.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +36,8 @@ import { BuildPipelineComponent } from './build-pipeline/build-pipeline.componen
     LoginComponent,
     RegisterComponent,
     BuildPipelineComponent,
+    SelectBuildComponent,
+    SelectBuildToolsComponent,
   
    
   ],
@@ -42,7 +49,8 @@ import { BuildPipelineComponent } from './build-pipeline/build-pipeline.componen
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgScrollbarModule
 
   ],
   providers: [GetApiService],

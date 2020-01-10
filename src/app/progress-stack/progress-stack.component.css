@@ -16,9 +16,7 @@
   /* right: 0.5px; */
   cursor: pointer;
   } 
-  button:hover{
-  background:#DC3545;
-  }
+  
   .x{
   float: right;
   }
@@ -27,5 +25,8 @@
   }
   .listStack{
   height: 35px;
+  }  
+
+  .progress-card {
+    margin-bottom: 3rem;
   }
-  

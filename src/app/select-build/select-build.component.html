@@ -1,0 +1,126 @@
+
+<div class="main">
+        <button mat-raised-button (click)="callPLB()">PLB</button> 
+        {{plbData}}
+<form [formGroup]="InputForm" (ngSubmit)="onSubmit()">
+     <div *ngFor="let question of questions">
+        <h4>Select {{question.Question}} </h4>
+        <div *ngIf="question.Question!= 'Container';  else containerBlock">
+            <mat-form-field >
+                <mat-label>{{question.Question}}</mat-label>
+                    
+                        <mat-select formControlName="enterInput" 
+                        ([ngModel])="selectedToolObj" 
+                        (ngModelChange)="onChangeObj($event)" >
+                            <mat-option *ngFor="let tool of getData(question.Question)" 
+                            [value]="tool.ToolName" >      
+                                    {{tool.ToolName}}
+                            </mat-option>
+                        </mat-select>
+                    
+            </mat-form-field>
+        </div>
+        <ng-template #containerBlock>
+            <p *ngIf="!containerFlag && !noValueContainer">You have Container?</p> <br>
+            <button mat-raised-button (click)="haveContainer()" *ngIf="!containerFlag && !noValueContainer">Yes</button> 
+            <div *ngIf="containerFlag">
+                <mat-form-field >
+                    <mat-label>{{question.Question}}</mat-label>
+                        <mat-select formControlName="enterInput" 
+                            ([ngModel])="selectedToolObj" 
+                            (ngModelChange)="onChangeObj($event)" >
+                               <mat-option *ngFor="let tool of getData(question.Question)" 
+                                [value]="tool.ToolName" >      
+                                        {{tool.ToolName}}
+                                </mat-option> 
+                        </mat-select>                 
+                </mat-form-field></div>
+            <button mat-raised-button *ngIf="!containerFlag && !noValueContainer" (click)="noContainer()">No</button>
+            <div *ngIf="noValueContainer && !containerFlag">Please Create Container Later</div>
+            </ng-template>
+                     
+        <div *ngFor="let param of getParam(question.Question,selectedToolObj)"> 
+            <div *ngIf="param.ToolName==selectedToolObj">
+                <mat-form-field >
+                    <input matInput [placeholder]="param.ParamName" formControlName="paramValue">
+                </mat-form-field>
+            </div>
+        </div><br>
+        
+        <!-- <button mat-raised-button (click)="addInput()">Next</button>  -->
+    </div>
+    <button mat-raised-button style="width : 30em;" type="submit" [disabled]="!InputForm.valid">Build Pipeline</button> 
+    
+</form>
+
+
+<br>
+    <br>
+    <br>
+</div>
+
+
+<!-- <div class="main">
+    <div *ngFor="let question of questions">
+        <h4>Please Select {{question.Question}}</h4>
+        <mat-form-field>
+                <mat-label>{{question.Question}}</mat-label>
+                <mat-select  >    
+                    <mat-option *ngFor="let tool of tools"  [value]="tool.ToolName">
+                          <div *ngIf="tool.Question === question.Question">{{tool.ToolName}}</div>
+                    </mat-option>
+                
+                </mat-select>
+        </mat-form-field>
+    </div>     
+</div> -->
+<!-- <div class="main">
+    <form [formGroup]="LanguageFrom">
+        <h4>Select Application Details</h4>
+            <mat-form-field>
+                <mat-label>Language</mat-label>
+                  <mat-select formControlName="selectLang">
+                    <mat-option value="volvo">NodeJS</mat-option>
+                    <mat-option value="saab">JAVA</mat-option>
+                    <mat-option value="mercedes">.Net</mat-option>
+                    <mat-option value="audi">C++</mat-option>
+                  </mat-select>
+                </mat-form-field>
+    </form>
+    <form [formGroup]="RepositoryForm">
+        <h4>Select Repository & Enter Details</h4>
+        <mat-form-field >
+            <mat-label>Repository</mat-label>
+            <mat-select formControlName="selectRepo">
+                  <mat-option value="git">Git</mat-option>
+                  <mat-option value="gitHub">GitHub</mat-option>
+                  <mat-option value="gitLab">GitLab</mat-option>
+                  <mat-option value="bitbucket">Bitbucket</mat-option>
+            </mat-select>
+        </mat-form-field><br>
+        <div *ngIf="RepositoryForm.controls.selectRepo.touched==true">
+                <mat-form-field >
+                        <input matInput [placeholder]="Username" formControlName="username">
+                </mat-form-field><br>
+                <mat-form-field >
+                        <input matInput placeholder="URL" formControlName="url" >
+                </mat-form-field><br>
+                <mat-form-field>
+                        <input matInput type="password" placeholder="Password" formControlName="password">
+                </mat-form-field>
+        </div>
+    </form>
+    <form [formGroup]="ServerFrom">
+            <h4>Select Target Server</h4>
+                <mat-form-field>
+                    <mat-label>Target Servers</mat-label>
+                      <mat-select formControlName="selectServer">
+                        <mat-option value="serverEcs">AWS ECS</mat-option>
+                        <mat-option value="serverGcp">GCP</mat-option>
+                        <mat-option value="serverAzure">Azure</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+    </form>
+
+</div>
+ -->

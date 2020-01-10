@@ -16,25 +16,11 @@ export interface Tool {
   subsection: string;
   tools: string;
 }
-export class LoginInfo {
-  Status: number;
-  Info: string;
-}
-// export interface ToolAccessName{
-//   access:string[];
-// }
-// export interface AccessTool {
-//   toolName: string;
-//   toolAccessName: ToolAccessName;
-  
-// }
-
 @Injectable({
   providedIn: "root"
 })
 export class GetApiService implements OnDestroy {
   apiUrl: string;
-  public LoginData$: BehaviorSubject<LoginInfo>;
   stagesState: boolean = false;
   stages: Stage[] = [];
 
@@ -52,7 +38,6 @@ export class GetApiService implements OnDestroy {
   
   constructor(private http: HttpClient) {
     this.apiUrl = environment.apiUrl;
-    this.LoginData$ = new BehaviorSubject<LoginInfo>(null);
   }
   setUserName(name:String){
     this.userName= name;
@@ -88,9 +73,10 @@ export class GetApiService implements OnDestroy {
   }
 
   callSubcategoriesApi(stage: String): Observable<Object> {
+    
     if (stage === "Preproduction") {
       return of([]);
-    } else 
+    } else  
     return this.http.get<SubCategory[]>(this.apiUrl + stage);
   }
 
@@ -101,14 +87,7 @@ export class GetApiService implements OnDestroy {
       return this.http.get<Tool[]>(
         this.apiUrl + stage + "/" + subcategoriesRoute
       );
-  }
-  // public getAllData() {
-  //   const stagesApi = this.callStagesApi();
-  //   const subcategoriesApi = this.callSubcategoriesApi;
-  //   const toolsApi = this.callToolsApi;
-  //   stagesApi.pipe(concat(subcategoriesApi()))
-  // }
- 
+  } 
   public getAllData() {
     this.subscription.add(this.callStagesApi().subscribe(
       (next: any) => {

@@ -1,11 +1,26 @@
+<!-- 
+<button mat-raised-button (click)="addItem()">
+  add item
+</button>
+ <form [formGroup]="formGroup">
+  <mat-horizontal-stepper  formArrayName="form">
+    <mat-step [formGroupName]="i" *ngFor="let customerGroup of formGroup.controls.form.controls; let i = index">
+      <ng-template matStepLabel>Step {{i + 1}}</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="cont" required>
+      </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form> -->
 
 <div class="wrapper">
 
   <mat-horizontal-stepper [linear]="isLinear" #stepper style="background:lightgray">
-  <!-- <div *ngFor="let data of loadData">
-     {{data.toolName}} -->
 
-  <!--</div> -->
     <mat-step [stepControl]="gitForm">
       <form [formGroup]="gitForm">
         <ng-template matStepLabel>Fill out Git Information</ng-template>
@@ -21,7 +36,7 @@
         <div>
           <button mat-raised-button matStepperNext>Next</button>
         </div>
-      </form>
+      </form> 
     </mat-step>
     <mat-step [stepControl]="jenkinsForm">
       <form [formGroup]="jenkinsForm">
@@ -51,4 +66,19 @@
     </mat-step>
   
   </mat-horizontal-stepper>
-</div>
+
+  
+  <div *ngFor="let data of accessData;index as i">
+    {{data.ToolName}}-->{{data.AccessParam}}
+      
+      <!-- <div *ngIf="i%2==0; else loggedOut" >{{i}}{{data}}</div>
+
+            
+      <ng-template #loggedOut>
+          {{i}}
+         {{data}}
+        </ng-template>
+           -->
+      
+        </div>
+ <!-- </div>  -->

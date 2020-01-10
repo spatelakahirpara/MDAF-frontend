@@ -1,44 +1,39 @@
-
-    
+<div class="bar">
+    <p>Here is your selected tool's stack</p>
+</div>
+<hr>
+<div *ngIf="isData; else noData">
     <div class="wrapper">
-        <div class="bar" style="background-color: rgb(238, 158, 238);">
-            <h3>Here is your Tool Stack</h3>
-            <br>
-          
-            
-        <ul ><li *ngFor="let o of stack">
-            <img  src="https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/devopsloop-1560x760.png"  alt="Avatar">
-            <h3> {{ o.tools }} </h3>
-            <p>
-              <span> {{o.stage}} </span>
-              <span> --> {{o.subsection}} </span>
-        </p>
-        </li>
-         
-        </ul>
-        <br />
-        <button type="btn btn-primary" (click)="build()"> Build the pipeline </button>
-      </div><!-- .wrapper -->
-  
-<!-- <div class="main wrapper">
-        <div class="bar" style="background-color: rgb(238, 158, 238);">
-            <h3>Here is your Tool Stack</h3>
-            <br>
-            <nav>
-            <mat-list>
-              <ul class="column">
-
-                    <mat-list-item *ngFor="let o of stack" class="row">
-                      <img matListAvatar src="https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/devopsloop-1560x760.png" alt="...">
-                      <h3 matLine> {{ o.tools }} </h3>
-                      <p matLine>
-                        <span> {{o.stage}} </span>
-                        <span class="demo-2"> -- {{o.subsection}} </span>
-                      </p>
-                    </mat-list-item>
-                  </ul>
-                  </mat-list>
-                </nav>
-        </div>     
+      <div class="stack-container">
+        <div class="col-sm-12">
+          <div class="row">
+            <mat-card class="col-lg-3 review-card" *ngFor="let stack of stacks">
+              <mat-card-header>
+                <div mat-card-avatar >
+                    <img class="stack-image" src="https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/devopsloop-1560x760.png" 
+                    alt="Avatar">
+                </div>
+                 <mat-card-title> {{ stack.tools }} </mat-card-title>                 
+              </mat-card-header>
+              <mat-divider></mat-divider>
+              <mat-card-content class="add-pad">
+                <p innerHTML="{{stack.stage}}"></p>
+                <p innerHTML="{{stack.subsection}}"></p>
+              </mat-card-content> 
+            </mat-card>
+          </div>
+        </div>
+      </div>
     </div>
-   -->
+    <div class="footer-btn">
+        <button mat-raised-button color="primary" (click)="build()"> Build the pipeline </button>
+    </div>
+  </div>
+  <ng-template #noData>
+      <mat-card class="col-lg-6 review-card noData">
+          <mat-card-header>
+               <mat-card-title> Please, select the tools's stack  </mat-card-title>
+              </mat-card-header>
+        </mat-card>
+    </ng-template>
+  

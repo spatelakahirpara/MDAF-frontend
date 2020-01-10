@@ -4,8 +4,7 @@
   padding: 3px !important;
   margin: 3px !important;
 }
-div {
-  padding: 50px;
+div { 
   background-color: #f7f9ff;
 }
 .step-menu {
@@ -71,16 +70,16 @@ div {
   border: none;
 }
 .step-menu li.current {
-  background: #3366ff;;
+  background: #5D94C6;;
   color: #f7f9ff;
 }
 .step-menu li.current:after {
-  border-left-color: #3366ff;
+  border-left-color: #5D94C6;
 }
 .step-menu li.complete {
-  background: #3366ff;
+  background: #7ABCF9;
   color: #f7f9ff;
 }
 .step-menu li.complete:after {
-  border-left-color:#3366ff;
+  border-left-color:#7ABCF9;
 }

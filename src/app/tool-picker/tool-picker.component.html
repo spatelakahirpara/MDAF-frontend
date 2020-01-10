@@ -1,5 +1,5 @@
 
-<mat-card>
+<mat-card class="mat-tool-picker">
   <div *ngIf="tabs.length == 0"><h3>Future Work</h3>
     <br>
     Please click Skip
@@ -14,7 +14,7 @@
     
     
     <mat-tab *ngFor="let tab of tabs; index as i" [label]="i + 1">
-      <h3>{{ tab }}</h3>
+      <h5  class="tab-pad">{{ tab }}</h5>
       <h3 *ngIf="tabs.length==0"> preprod</h3>
       <mat-radio-group class="radio-group" [(ngModel)]="choice">
         <mat-radio-button mat-raised-button
