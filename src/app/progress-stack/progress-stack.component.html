@@ -7,8 +7,7 @@
   <div
     class="card bg-light mb-3" 
     style="max-width: 18rem;"
-    *ngFor="let stage of stages; index as i"
-  >
+    *ngFor="let stage of stages; index as i">
     <div class="card-body" style="background-color:#F7F9FF"> 
       <h5 class="card-title">{{ stage.stage }}</h5>
       <ul class="card-text" >
@@ -17,9 +16,9 @@
           <div class="listStack" *ngIf="o.stage === stage.stage">
               <!-- <span *ngIf="!toolErr">Error</span> -->
               <li> <span class="t">{{ o.tools }} </span>
-              <button class="x" (click)="deleteTool(o)">
-                  x
-                </button>
+                <button type="button" class="close" aria-label="Close" (click)="deleteTool(o)">
+  <span aria-hidden="true">&times;</span>
+</button>
               </li>
           </div>
         </div> 
