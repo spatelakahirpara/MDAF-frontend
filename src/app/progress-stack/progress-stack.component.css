@@ -20,9 +20,15 @@
   .x{
   float: right;
   }
+
+
   .t{
   float: left;
   }
+  .list{
+    list-style-type: none;
+  }
+
   .listStack{
   height: 35px;
   }  

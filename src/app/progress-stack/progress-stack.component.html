@@ -1,35 +1,30 @@
 <div class="progress-card">
-<mat-card>
-  <h5>Your Tool Stack</h5>
+  <mat-card>
+    <h5>Your Tool Stack</h5>
     <div class="flexstack">
-    
-    <br>
-  <div
-    class="card bg-light mb-3" 
-    style="max-width: 18rem;"
-    *ngFor="let stage of stages; index as i">
-    <div class="card-body" style="background-color:#F7F9FF"> 
-      <h5 class="card-title">{{ stage.stage }}</h5>
-      <ul class="card-text" >
-        <div *ngFor="let o of options">
-            
-          <div class="listStack" *ngIf="o.stage === stage.stage">
-              <!-- <span *ngIf="!toolErr">Error</span> -->
-              <li> <span class="t">{{ o.tools }} </span>
-                <button type="button" class="close" aria-label="Close" (click)="deleteTool(o)">
-  <span aria-hidden="true">&times;</span>
-</button>
-              </li>
-          </div>
-        </div> 
-      </ul>
-    </div> 
-  </div>
-  
-</div>
-</mat-card>
-<br> 
-<button (click)="onClick($event)"  color="primary" [disabled]= "!getButton()" mat-raised-button >
+      <br>
+
+      <div class="card mb-3" *ngFor="let stage of stages; index as i">
+        <h6 class="card-header">{{ stage.stage }}</h6>
+        <div class="card-body">
+          <ul class="card-text">
+            <div *ngFor="let o of options">
+              <div class="listStack" *ngIf="o.stage === stage.stage">
+                <!-- <span *ngIf="!toolErr">Error</span> -->
+                <li class="list"> <span class="t">{{ o.tools }} </span>
+                  <button type="button" class="close" aria-label="Close" (click)="deleteTool(o)">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </li>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  <br>
+  <button (click)="onClick($event)" color="primary" [disabled]="!getButton()" mat-raised-button>
     Review
- </button>
+  </button>
 </div>

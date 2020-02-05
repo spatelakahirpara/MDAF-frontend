@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { GetApiService, Tool } from "../services/get-api.service";
-import { SavedToolchainService } from "../services/saved-toolchain.service";
+import { Component, OnInit } from '@angular/core';
+import { GetApiService, Tool } from '../services/get-api.service';
+import { SavedToolchainService } from '../services/saved-toolchain.service';
 import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 
 @Component({
-  selector: "app-tool-picker",
-  templateUrl: "./tool-picker.component.html",
-  styleUrls: ["./tool-picker.component.css"]
+  selector: 'app-tool-picker',
+  templateUrl: './tool-picker.component.html',
+  styleUrls: ['./tool-picker.component.css']
 })
 export class ToolPickerComponent implements OnInit {
   changeText: boolean;
@@ -16,17 +16,15 @@ export class ToolPickerComponent implements OnInit {
   ) {
     this.changeText = false;
   }
-  choice: number; 
-   
+  choice: number;
   get tabs(): string[] {
-    if (this.apiService.subcategoriesState)
+    if (this.apiService.subcategoriesState) {
        return this.apiService.subcategories.map(e => e.subsection);
-    else return [];
+    } else { return []; }
   }
 
   get options(): Tool[][] {
-    if (this.apiService.toolsState) {return this.apiService.tools;}
-    else return [];
+    if (this.apiService.toolsState) {return this.apiService.tools; } else { return []; }
   }
 
   get currentTab(): number {
@@ -43,42 +41,33 @@ export class ToolPickerComponent implements OnInit {
     this.apiService.currentStage = i;
     this.currentTab = 0;
   }
-  
-  skip(){
+  skip() {
       this.currentStage = 1 + this.currentStage;
       this.apiService.getAllData();
-    
+
   }
   public onClick(event: Event) {
-    
-     if(this.options[this.currentTab][0].stage=="Monitor"){
+     if (this.options[this.currentTab][0].stage === 'Monitor') {
         this.storeChoice();
-        this.savedToolchain.showButton=true;
-    }
-    else{
+        this.savedToolchain.showButton = true;
+    } else {
       this.storeChoice();
-      if (this.currentTab < this.apiService.subcategories.length - 1)
-       { 
+      if (this.currentTab < this.apiService.subcategories.length - 1) {
          this.currentTab = 1 + this.currentTab;
-        }
-
-      else {this.currentStage = 1 + this.currentStage;
+        } else {this.currentStage = 1 + this.currentStage;
       // this.apiService.currentStage= this.currentStage
-      }  
-      this.savedToolchain.showButton=false;
+      }
+      this.savedToolchain.showButton = false;
       this.apiService.getAllData();
     }
   }
- 
   private storeChoice() {
     const tool = this.options[this.currentTab][this.choice];
     this.savedToolchain.addStack(tool);
-    this.choice=null;  
-  } 
- 
+    this.choice = null;
+  }
   ngOnInit() {
     this.apiService.getAllData();
- 
   }
 
 }

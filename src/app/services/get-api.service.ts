@@ -1,7 +1,7 @@
-import { Injectable, OnDestroy } from "@angular/core";
-import { environment } from "src/environments/environment";
-import { HttpClient } from "@angular/common/http";
-import { Observable, of, concat, BehaviorSubject, Subscription } from "rxjs";
+import { Injectable, OnDestroy } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of, concat, BehaviorSubject, Subscription } from 'rxjs';
 
 export interface Stage {
   stage: string;
@@ -17,84 +17,88 @@ export interface Tool {
   tools: string;
 }
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class GetApiService implements OnDestroy {
   apiUrl: string;
-  stagesState: boolean = false;
+  stagesState = false;
   stages: Stage[] = [];
 
-  subcategoriesState: boolean = false;
+  subcategoriesState = false;
   subcategories: SubCategory[] = [];
+  // tslint:disable-next-line: new-parens
   subscription = new Subscription;
 
-  toolsState: boolean = false;
+  toolsState = false;
   tools: Tool[][] = [];
-  loadAccessData:String []= [];
+  // tslint:disable-next-line: ban-types
+  loadAccessData: String [] = [];
 
-  currentStage: number = 0;
-  currentSubCategory: number = 0;
+  currentStage = 0;
+  currentSubCategory = 0;
   userName: String;
-  
+
   constructor(private http: HttpClient) {
     this.apiUrl = environment.apiUrl;
   }
-  setUserName(name:String){
-    this.userName= name;
+  setUserName(name: String) {
+    this.userName = name;
   }
-  getUserName(){
+  getUserName() {
     return this.userName;
   }
-  callRegisterApi(username,password){
-    let reqBody={
-      "UserName":username,
-      "Password":password
+  callRegisterApi(username, password) {
+    const reqBody = {
+      UserName: username,
+      Password: password
+   };
+    return this.http.post<any[]>(this.apiUrl + 'register', reqBody);
+  }
+  callLoginApi(username, password) {
+    const reqBody = {
+      UserName: username,
+      Password: password
    }
-    return this.http.post<any[]>(this.apiUrl + "register",reqBody);
+    return this.http.post<any[]>(this.apiUrl + 'login', reqBody);
   }
-  callLoginApi(username,password){
-    let reqBody={
-      "UserName":username,
-      "Password":password
-   } 
-    return this.http.post<any[]>(this.apiUrl + "login",reqBody);
+
+  callStackApi(username, stack) {
+    const reqBody = {
+      UserName: username,
+      Stack: stack
+   }
+    return this.http.post<any[]>(this.apiUrl + 'review', reqBody);
   }
- 
-  callStackApi(username, stack){
-    let reqBody={
-      "UserName":username,
-      "Stack":stack
-   } 
-    return this.http.post<any[]>(this.apiUrl + "review",reqBody);
-  }
- 
+
   callStagesApi() {
-    return this.http.get<Stage[]>(this.apiUrl + "toolchain");
+    return this.http.get<Stage[]>(this.apiUrl + 'toolchain');
   }
 
   callSubcategoriesApi(stage: String): Observable<Object> {
-    
-    if (stage === "Preproduction") {
+
+    if (stage === 'Preproduction') {
       return of([]);
-    } else  
+    } else {
     return this.http.get<SubCategory[]>(this.apiUrl + stage);
+    }
   }
 
   callToolsApi(stage: String, subcategoriesRoute: string): Observable<Object> {
-    if (stage === "Preproduction") {
+    if (stage === 'Preproduction') {
       return of('work');
-    } else
+    } else {
       return this.http.get<Tool[]>(
-        this.apiUrl + stage + "/" + subcategoriesRoute
+        this.apiUrl + stage + '/' + subcategoriesRoute
       );
-  } 
+    }
+  }
   public getAllData() {
     this.subscription.add(this.callStagesApi().subscribe(
       (next: any) => {
-        
+
         this.stages = next;
         this.stagesState = true;
-        
+
         this.callSubcategoriesApi(
           this.stages[this.currentStage].stage
         ).subscribe(
