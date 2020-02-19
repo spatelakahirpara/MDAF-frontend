@@ -33,4 +33,4 @@ export class ProgressBarComponent implements OnInit {
     this.apiService.currentSubCategory = 0;
   }
 
-} 
+}

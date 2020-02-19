@@ -109,4 +109,3 @@ toolArray:QuestionTools[]=[]
       this.t.reset();
   }
 }
-

@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { GetApiService, Tool } from "../services/get-api.service";
-import { SavedToolchainService } from "../services/saved-toolchain.service";
+import { Component, OnInit } from '@angular/core';
+import { GetApiService, Tool } from '../services/get-api.service';
+import { SavedToolchainService } from '../services/saved-toolchain.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-progress-stack",
-  templateUrl: "./progress-stack.component.html",
-  styleUrls: ["./progress-stack.component.css"]
+  selector: 'app-progress-stack',
+  templateUrl: './progress-stack.component.html',
+  styleUrls: ['./progress-stack.component.css']
 })
 
 export class ProgressStackComponent implements OnInit {
@@ -14,13 +14,21 @@ export class ProgressStackComponent implements OnInit {
     private apiService: GetApiService,
     private savedToolchain: SavedToolchainService,
     private router: Router
-  ) {} 
-  displayButton: Boolean=true;
-  tool: Tool[]=[];
+  ) {}
+  // tslint:disable-next-line: ban-types
+  displayButton: Boolean = true;
+  tool: Tool[] = [];
    errorMap = new Map();
-   fillError:boolean;
+   fillError: boolean;
   ngOnInit() {
-     
+  }
+  get tabs(): string[] {
+    if (this.apiService.subcategoriesState) {
+       return this.apiService.subcategories.map(e => e.subsection);
+    } else { return []; }
+  }
+  get currentTab(): number {
+    return this.apiService.currentSubCategory;
   }
 
   get stages() {
@@ -29,21 +37,19 @@ export class ProgressStackComponent implements OnInit {
   get options() {
     return this.savedToolchain.stack;
   }
-  getButton(){
+  getButton() {
     return this.savedToolchain.getButton();
   }
-  getError(){
-    
+  getError() {
+
   }
-  onClick(event:Event){
-    console.log(this.savedToolchain.getStack()); 
+  onClick(event: Event) {
+    console.log(this.savedToolchain.getStack());
     this.savedToolchain.saveToolChainApi();
-    
     this.router.navigate(['review']);
 
   }
-  deleteTool(tool:Tool){
-    
+  deleteTool(tool: Tool) {
     this.savedToolchain.removeTool(tool);
     // this.errorMap=this.savedToolchain.errMap;
     // if(this.errorMap.has(tool.stage)){
@@ -53,7 +59,5 @@ export class ProgressStackComponent implements OnInit {
     //   this.fillError=false;
     // }
     // console.log("error"+this.fillError);
-     
   }
-  
 }

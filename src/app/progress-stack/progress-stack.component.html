@@ -1,30 +1,31 @@
-<div class="progress-card">
-  <mat-card>
-    <h5>Your Tool Stack</h5>
-    <div class="flexstack">
-      <br>
-
-      <div class="card mb-3" *ngFor="let stage of stages; index as i">
-        <h6 class="card-header">{{ stage.stage }}</h6>
-        <div class="card-body">
-          <ul class="card-text">
-            <div *ngFor="let o of options">
-              <div class="listStack" *ngIf="o.stage === stage.stage">
-                <!-- <span *ngIf="!toolErr">Error</span> -->
-                <li class="list"> <span class="t">{{ o.tools }} </span>
-                  <button type="button" class="close" aria-label="Close" (click)="deleteTool(o)">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </li>
-              </div>
-            </div>
-          </ul>
+<div class="card">
+  <div class="card-body">
+    <div class="card-title text-center">
+      <h4><b>Your Tool Stack</b></h4>
+    </div>
+    <div class="card mb-3" *ngFor="let stage of stages; index as i">
+      <h6 class="card-header text-center">{{ stage.stage }}</h6>
+      <div class="card-body">
+        <div class="card" *ngFor="let tab of tabs; index as i">
+          <h5 class="tab-pad">{{ tab }}</h5>
         </div>
+        <ul class="card-text">
+          <div *ngFor="let o of options">
+            <div class="listStack" *ngIf="o.stage === stage.stage">
+              <li class="list"> <span class="t">{{ o.tools }} </span>
+                <button type="button" class="close" aria-label="Close" (click)="deleteTool(o)">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </li>
+            </div>
+          </div>
+        </ul>
       </div>
     </div>
-  </mat-card>
-  <br>
-  <button (click)="onClick($event)" color="primary" [disabled]="!getButton()" mat-raised-button>
+  </div>
+</div>
+<div class="pull-right">
+  <button (click)="onClick($event)" class="mt-3 btn btn-outline-dark btn-sm" [disabled]="!getButton()">
     Review
   </button>
 </div>

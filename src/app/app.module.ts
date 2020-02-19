@@ -22,6 +22,7 @@ import { BuildPipelineComponent } from './build-pipeline/build-pipeline.componen
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { SelectBuildComponent } from './select-build/select-build.component';
 import { SelectBuildToolsComponent } from './select-build-tools/select-build-tools.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SelectBuildToolsComponent } from './select-build-tools/select-build-too
     BuildPipelineComponent,
     SelectBuildComponent,
     SelectBuildToolsComponent,
+    NavbarComponent,
   
    
   ],

@@ -15,28 +15,20 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
     }
-    login() : void {
-      
-      this.loginService.callLoginApi(this.username,this.password).subscribe((res:any)=>{
-        
-        if(res.StatusCode==200){
+    login(): void {
+      this.loginService.callLoginApi(this.username, this.password).subscribe((res: any) => {
+        if (res.StatusCode === 200) {
         console.log(res);
-        this.username= res.body.UserName;
+        this.username = res.body.UserName;
         console.log(res.body.UserName);
-          this.loginService.setUserName(res.body.UserName);
-          this.router.navigate(['../selectTools']);
- 
-        }
-        else if(res.StatusCode==404){
+        this.loginService.setUserName(res.body.UserName);
+        this.router.navigate(['../selectTools']);
+        } else if (res.StatusCode === 404) {
 
-          alert("Username and Password doesn't matched" );
-          this.username="";
-          this.password="";
-          
+          alert('Username and Password doesn\'t matched' );
+          this.username = '';
+          this.password = '';
         }
-        
       });
     }
   }
-
-

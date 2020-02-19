@@ -1,9 +1,4 @@
-.flexstack {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-  }
-  .flexstack > div {
-    flex: 0 0 250px;
-  }
-  a.align-right { text-align:right; }
+.container{
+  margin-top: 10%;
+  width: 30%;
+}

@@ -14,20 +14,16 @@ export class RegisterComponent implements OnInit {
   password: string;
     ngOnInit() {
     }
-    register() : void {
-        this.registerService.callRegisterApi(this.username,this.password).subscribe((res:any)=>{
-  
-          if(res.StatusCode==200){
+    register(): void {
+        this.registerService.callRegisterApi(this.username, this.password).subscribe((res: any) => {
+          if (res.StatusCode === 200) {
 
             this.router.navigate(['../login']);
-  
+          } else {
+            console.log( 'error' );
           }
-          else{
-            console.log("error")
-          }
-          console.log("submitted the data"+ res);
+          console.log('submitted the data' + res);
         });
       }
-    
 
 }

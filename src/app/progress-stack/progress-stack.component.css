@@ -1,21 +1,15 @@
-:host { 
-  width: 100%; 
+.x{
+  float: right;
   }
-  .flexstack {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  background-color: #FFFFFF;
+  .t{
+  float: left;
   }
-  .flexstack > div {
-  flex: 0 0 250px;
+  .list{
+    list-style-type: none;
   }
-  .delete {
-  display: inline-block;
-  position: absolute;
-  /* right: 0.5px; */
-  cursor: pointer;
-  } 
+  .listStack{
+  height: 35px;
+  }  
   
   .x{
   float: right;
