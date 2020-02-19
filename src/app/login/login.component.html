@@ -1,31 +1,43 @@
-<div class="flexstack">
-<mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <form class="example-form">
-            <table class="example-full-width" cellspacing="0">
-              <tr>
-                <td>
-                  <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
-                  </mat-form-field>
-                </td>
-              </tr>
-              <tr>
-              <td><mat-form-field class="example-full-width">
-                <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
-              </mat-form-field></td>
-            </tr></table>
-          </form>
-          <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-        </mat-card-content>
-        <mat-card-actions>
-            <div>
-          <button mat-raised-button (click)="login()" color="primary">Login</button>
-          <a routerLink="../register" class="align-right">Not Registered?</a>
-        </div>
-        </mat-card-actions>
-      </mat-card>
+<div class="container">
+  <div class="card rounded">
+    <div class="card-header text-center bg-dark text-white">
+      Sign In
     </div>
+    <div class="card-body">
+      <form>
+        <div class="form-row align-items-center">
+          <div class="col">
+            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-dark text-white border-dark"><i class="fa fa-user" aria-hidden="true"></i></div>
+              </div>
+              <input type="text" class="form-control border-dark" id="inlineFormInputGroup" placeholder="Username"
+                [(ngModel)]="username" name="username" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label class="sr-only" for="inlineFormInputGroup">Password</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-dark text-white border-dark"><i class="fa fa-suitcase" aria-hidden="true"></i></div>
+              </div>
+              <input type="text" class="form-control border-dark" id="inlineFormInputGroup" placeholder="Password"
+                [(ngModel)]="password" type="password" name="password" required>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-4">
+          <button (click)="login()" class="btn btn-outline-dark">Sign In</button>
+        </div>
+        <div class="col-8">
+          <a routerLink="../register" class="pull-right btn btn-link font-weight-light">Not Registered?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

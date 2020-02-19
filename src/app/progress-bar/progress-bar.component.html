@@ -1,21 +1,8 @@
-<!-- <mat-card class="mat-elevation-z24">
-  <mat-tab-group [(selectedIndex)]="currentStage" class="minimal-width-tabs">
-    <mat-tab *ngFor="let stage of stages; index as i" [label]="stage">
-      {{ i }} {{ stage }}
-    </mat-tab>
-  </mat-tab-group>
-</mat-card> -->
-<div>
-  <h4>{{getName()}}'s Progress Bar </h4>
+<div class="mt-5">
+  <!-- <h4>{{getName()}}'s Progress Bar </h4> -->
   <ul class="step-menu">
-    
-    <li 
-      *ngFor="let stage of stages; index as i"
-      [class.complete]="i < currentStage"
-      [class.current]="i == currentStage"
-      (click)="onClickChevron($event, i)"
-    >
-    
+    <li *ngFor="let stage of stages; index as i" [class.complete]="i < currentStage" [class.current]="i == currentStage"
+      (click)="onClickChevron($event, i)">
       <!-- <a href="./{{ i }}"> -->
       {{ stage }}
       <!-- </a> -->

@@ -1,38 +1,13 @@
-:host { 
-  width: 100%; 
-  }
-  .flexstack {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  background-color: #FFFFFF;
-  }
-  .flexstack > div {
-  flex: 0 0 250px;
-  }
-  .delete {
-  display: inline-block;
-  position: absolute;
-  /* right: 0.5px; */
-  cursor: pointer;
-  } 
-  
+
   .x{
   float: right;
   }
-
-
   .t{
   float: left;
   }
   .list{
     list-style-type: none;
   }
-
   .listStack{
   height: 35px;
   }  
-
-  .progress-card {
-    margin-bottom: 3rem;
-  }

@@ -58,7 +58,7 @@ export class GetApiService implements OnDestroy {
     const reqBody = {
       UserName: username,
       Password: password
-   }
+   };
     return this.http.post<any[]>(this.apiUrl + 'login', reqBody);
   }
 
@@ -66,7 +66,7 @@ export class GetApiService implements OnDestroy {
     const reqBody = {
       UserName: username,
       Stack: stack
-   }
+   };
     return this.http.post<any[]>(this.apiUrl + 'review', reqBody);
   }
 
@@ -74,6 +74,7 @@ export class GetApiService implements OnDestroy {
     return this.http.get<Stage[]>(this.apiUrl + 'toolchain');
   }
 
+  // tslint:disable-next-line: ban-types
   callSubcategoriesApi(stage: String): Observable<Object> {
 
     if (stage === 'Preproduction') {
@@ -83,6 +84,7 @@ export class GetApiService implements OnDestroy {
     }
   }
 
+  // tslint:disable-next-line: ban-types
   callToolsApi(stage: String, subcategoriesRoute: string): Observable<Object> {
     if (stage === 'Preproduction') {
       return of('work');
@@ -102,10 +104,12 @@ export class GetApiService implements OnDestroy {
         this.callSubcategoriesApi(
           this.stages[this.currentStage].stage
         ).subscribe(
+          // tslint:disable-next-line: no-shadowed-variable
           (next: any) => {
             this.subcategories = next;
             this.subcategoriesState = true;
             this.tools = [];
+            // tslint:disable-next-line: prefer-for-of
             for (let i = 0; i < this.subcategories.length; i++) {
               const element = this.subcategories[i];
               this.callToolsApi(element.stage, element.route).subscribe(

@@ -1,0 +1,28 @@
+
+.img-center{
+    width: 8em !important;
+  
+  }
+
+  .wrapper{
+    background: black !important;
+    height: 4em !important;
+    position: absolute;
+    width: 100%;
+  }
+
+  .text-color {
+    padding-top: 1px;
+    color: white;
+  }
+
+  .dropdown {
+    float: right;
+  }
+
+  .border-line {
+    font-size:20px; 
+    padding-right: 15px;
+    border-right: 1px solid #fff;
+    margin-right:15px;
+  }
